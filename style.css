@@ -19,7 +19,6 @@ body {
   background-color: navy;
   color: white;
   text-align: center;
-  font-weight: 700;
 }
 
 #articles {
@@ -27,3 +26,11 @@ body {
   border: black solid 1px;
   min-height: 20px;
 }
+
+ .display-4 {
+   font-weight: 700;
+ }
+
+ .top {
+  border-radius: 5px;
+ }

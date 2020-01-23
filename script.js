@@ -19,9 +19,11 @@ function searchNYT() {
         for (var i = 0; i < recordsNum; i++) {
             var NewsDiv = $('<div class="news"></div>');
             $('#articles').prepend(NewsDiv);
-            var storyLink = $('<a class="text-dark" href="' + response.response.docs[i].web_url + '"><h4>' + response.response.docs[i].headline.main +'</h4></a>');
-            var storyP = $('<p>' + response.response.docs[i].abstract + '</p>');
-            $(NewsDiv).append(storyLink, storyP);
+            var storyLink = $('<a class="text-dark" href="' + response.response.docs[i].web_url + '" target="_blank"><h4>' + response.response.docs[i].headline.main +'</h4></a>');
+            var storyDiv = $('<div>' + response.response.docs[i].abstract + '</div>');
+            var authorDiv = $('<div>' + response.response.docs[i].byline.original + '</div>');
+            var dateDiv = $('<div><b>Publish date: </b>' + response.response.docs[i].pub_date + '</div>');
+            $(NewsDiv).append(storyLink, authorDiv, storyDiv, dateDiv);
         }
     }); 
 }
@@ -52,18 +54,13 @@ $("body").on("keyup", ".form-control", function(event) {
 $("#search").on("click", function(event) {
     event.preventDefault();
     searchTerm = $("#search-term").val().trim();
-    console.log(searchTerm);
-    recordsNum = parseInt($("#records").val().trim());
+    recordsNum = parseInt($("#records").val());
     startYear = $("#start-year").val().trim();
     endYear = $("#end-year").val().trim();
     addYearURL();
-    console.log(searchTerm);
-    console.log(recordsNum);
-    console.log(startYear);
-    console.log(endYear);
     searchNYT();
-  });
+});
 
-  $("#clear").on("click", function(event) {
-    $(".news").remove();
-  });
+$("#clear").on("click", function(event) {
+$(".news").remove();
+});

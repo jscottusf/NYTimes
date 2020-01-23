@@ -6,6 +6,7 @@ html {
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -27,10 +28,17 @@ body {
   min-height: 20px;
 }
 
- .display-4 {
-   font-weight: 700;
- }
+.display-4 {
+  font-weight: 700;
+}
 
- .top {
+.top {
   border-radius: 5px;
- }
+}
+
+.news{
+  border-radius: 5px;
+  border: black solid 1px;
+  padding: 5px;
+  margin: 10px;
+}
